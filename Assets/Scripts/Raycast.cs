@@ -45,6 +45,12 @@ public class Raycast : MonoBehaviour
             {
                 interactable.Interact();
             }
+
+            if(hitinfo.collider.tag == "Customer" && Input.GetKeyDown(KeyCode.E))
+            {
+                CustomerAI cs = hitinfo.collider.GetComponent<CustomerAI>();
+                cs.positionManager.LeaveTicketQueue(cs.posToMove, cs);
+            }
         }
         else
         {

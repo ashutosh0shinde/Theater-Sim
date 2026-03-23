@@ -1,0 +1,6 @@
+CustomerAI
+1: Agent Moving to Ticket Queue -> ToTicketQueue: 
+		resereves the empty position from PositionManager and moves to the position
+
+2: Leaving Ticket Queue -> PositionManager.LeaveTicketQueue: 
+		unreserves the position and repositions remaining agents on the queue
