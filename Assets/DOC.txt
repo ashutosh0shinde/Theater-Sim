@@ -1,6 +1,57 @@
 CustomerAI
-1: Agent Moving to Ticket Queue -> ToTicketQueue: 
-		resereves the empty position from PositionManager and moves to the position
+	Functions:
+		1. Start -> Initializes PositionManager and agent component.
+		
+		2. Update -> if agent stops, face it to target
 
-2: Leaving Ticket Queue -> PositionManager.LeaveTicketQueue: 
-		unreserves the position and repositions remaining agents on the queue
+		3. ToTicketQueue -> reserives a spot at ticket queue from PositionManager.ReserveTicketQueue.
+							moves agent to spot by setting destination
+
+		4. RotateToTarget -> rotates the agent to the target.front
+
+		5. DestroyAgent -> destroyes agent
+
+	Functionality:
+		moving agent to ticket Queue:
+			ToTicketQueue()
+				1. reserves the most front possible spot and moves agent to the spot
+
+				FLOW:
+					Create Agent -> ToTicketQueue()
+			
+		leaving ticket queue
+			LeaveTicketQueue(current_position_transform, this.custormerAi_script) THEN move to next location
+				1. FreeTicketQueue(current_pos_transform, customerAI): removes the reservation of spot
+				2. moves remaining agents forward to fill gaps ->
+					traverse through the all spots starting from most front
+					if the spot has agent, then unreserve the spot and call ToTicketQueue() to move it to forward possible spot
+
+				FLOW:
+					Create Agent -> ToTicketQueue() -> LeaveTicketQueue() -> [to next location]
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+PositionManager: contains position details of queues and seats
+	Functions:
+		1. TicketQueuePos[]
+			arrya of class containing
+				1. transform of spot
+				2. boolean isReserved
+				3. CustomerAI script of agent assigned to position, NULL if not assigned
+				of all positions of ticket queue
+		
+		2. ReserveTicketQueue(CustomerAI customerAI): reserves spot and returns pos of reserved spot
+			1. traverse through all spots starting from most front
+			2. check if unreserved
+			3. if it is, then reserve it and assign agent script to the class of spot
+			4. return postition transform
+
+		3. FreeTicketQueue(Transform freepos, CustomerAI customerAI): unreserve spot
+			1. find positon to be unreserved in the array
+			2. when found, unreserve it and set the assigned agent t NULL
+
+		4. LeaveTicketQueue(Transform pos, CustomerAI customerAI): when agent is leaving
+			1. unreserve the spot of agent
+			2. reassign spots for remaining agents
+			
+					
