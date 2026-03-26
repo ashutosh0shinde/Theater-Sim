@@ -54,4 +54,56 @@ PositionManager: contains position details of queues and seats
 			1. unreserve the spot of agent
 			2. reassign spots for remaining agents
 			
+
+
+TicketMachine
+	Functions:
+		1. Start
+			Initiallizes cameraController, for pausing
+		2. Update
+			IF statement closing the window when Escape pressed if open
+		3 Interact()
+			Enable the ticket window
+			Pause the movement
+		4. Close()
+			Close the window
+			resume the movement
+		5. AddMovie: FIRST STAGE OF MACHINE
+			
+			
 					
+
+MovieButton: script storing details of perticular movie pointed by buttons on MOVIE SELECT
+	Data:
+		movie name
+		duration (minute)
+		audi
+		icon [IMAGE]
+		poster [IMAGE]
+	Function:
+		SelectMovie()
+
+
+Theater: having data of theater
+	MovieClass: array storing details of all movies
+			Acess -> Theater.movies[index]
+	Audi: contains audi data
+		audi index
+		array of seats object in audi
+		Access->
+				Theater.Audi[index]
+
+
+
+
+
+
+
+
+
+
+
+//temp
+
+seat occupanci
+is audi online
