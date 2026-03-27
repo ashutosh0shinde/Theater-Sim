@@ -377,8 +377,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 77.0785, y: 0}
-  m_SizeDelta: {x: 321.8281, y: 100}
+  m_AnchoredPosition: {x: 68, y: 0}
+  m_SizeDelta: {x: 897.498, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1824365311002740765
 CanvasRenderer:
@@ -504,7 +504,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7561797298424941180}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -627,6 +627,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movieName: 
-  duration_min: 0
+  movieTime: 
   audi: 0
+  duration_minute: 0
+  start_minute: 0
   index: 0
+  ui_movieName: {fileID: 3147601051274491872}
+  ui_movieTime: {fileID: 5785730727025127253}
+  ui_audi: {fileID: 2623869708819206079}
+  ui_movieIcon: {fileID: 8112827995213725940}

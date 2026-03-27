@@ -17,9 +17,10 @@ public class TicketMachine : MonoBehaviour, IInteractable, ICrosstext
         controller = GameObject.Find("Camera").GetComponent<CameraController>();
 
         { // test only
-            AddMovie(1, 2);
-            AddMovie(1, 2);
-            AddMovie(1, 2);
+            AddMovie(1, 1, 660);
+            AddMovie(0, 2, 760);
+            AddMovie(1, 4, 430);
+            AddMovie(0, 1, 760);
         }
     }
     public string CrossText => crosstext;
@@ -47,7 +48,7 @@ public class TicketMachine : MonoBehaviour, IInteractable, ICrosstext
         isOpen = false;
      }
      
-    public void AddMovie(int ind, int audi)
+    public void AddMovie(int ind, int audi, int start_minute)
     {
         GameObject obj = Instantiate(movieButton);
 
@@ -68,7 +69,13 @@ public class TicketMachine : MonoBehaviour, IInteractable, ICrosstext
 
         rt.anchoredPosition -= new Vector2(0, Theater.Instance.addedMovie.Count * movieListingMargin);
 
-        // add details of movie in the button
+        //passing only audi, start_minute and index, rest details will be fetched from movie data with the index in button script
+        MovieButton mb = obj.GetComponent<MovieButton>();
+        mb.audi = audi;
+        mb.start_minute = start_minute;
+        mb.index = ind;
+        mb.Init();
+        
         // add features to calculate start and end time of movie in suitable script
 
         obj.GetComponent<MovieButton>().Init();
