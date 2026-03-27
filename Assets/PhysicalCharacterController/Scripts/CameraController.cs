@@ -11,7 +11,16 @@ public class CameraController : MonoBehaviour
     
     private float _mouseVerticalValue;
 
-
+    public void FreezeCam()
+    {
+        newSensitivity = 0;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    public void UnfreezeCam()
+    {
+        newSensitivity = sensitivity;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     private float MouseVerticalValue
     {
         get => _mouseVerticalValue;
