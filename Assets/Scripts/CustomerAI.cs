@@ -15,7 +15,7 @@ public class CustomerAI : MonoBehaviour
     }
     void Update()
     {
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        if (!agent.pathPending && agent.remainingDistance < 0.5f && posToMove)
         {
             RotateToTarget(posToMove);
         }

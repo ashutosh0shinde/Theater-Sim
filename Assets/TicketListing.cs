@@ -2,52 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TicketMachine : MonoBehaviour, IInteractable, ICrosstext
+public class TicketListing : MonoBehaviour
 {
-    [SerializeField] private string crosstext;
-    [SerializeField] private GameObject ticketMachineCanvas;
-    public bool isOpen;
-    private CameraController controller;
     public int movieListingMargin;
     public GameObject movieButton;
     public GameObject movieButtonPlaceholder;
     public GameObject firstPlaceTrans;
+
     private void Start()
     {
-        controller = GameObject.Find("Camera").GetComponent<CameraController>();
-
-        { // test only
-            AddMovie(1, 1, 660);
-            AddMovie(0, 2, 760);
-            AddMovie(1, 4, 430);
-            AddMovie(0, 1, 760);
-        }
+        AddMovie(0, 2, 330);
+        AddMovie(1, 3, 600);
     }
-    public string CrossText => crosstext;
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(ticketMachineCanvas)
-            {
-                Close();
-            }
-        }
-    }
-    public void Interact()
-    {
-        ticketMachineCanvas.SetActive(true);
-        controller.FreezeCam();
-        isOpen = true;
-    }
-     public void Close()
-     {
-        ticketMachineCanvas.SetActive(false);
-        controller.UnfreezeCam();
-        isOpen = false;
-     }
-     
     public void AddMovie(int ind, int audi, int start_minute)
     {
         GameObject obj = Instantiate(movieButton);
@@ -75,7 +41,7 @@ public class TicketMachine : MonoBehaviour, IInteractable, ICrosstext
         mb.start_minute = start_minute;
         mb.index = ind;
         mb.Init();
-        
+
         // add features to calculate start and end time of movie in suitable script
 
         obj.GetComponent<MovieButton>().Init();

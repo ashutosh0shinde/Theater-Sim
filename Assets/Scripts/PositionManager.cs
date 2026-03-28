@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PositionManager : MonoBehaviour
 {
-    public TicketQueuePos[] ticketQueuepos;
+    public Theater theater;
 
+    private void Start()
+    {
+
+    }
     public Transform ReserveTicketQueue(CustomerAI customerAI)
     {
-        foreach(var pos in ticketQueuepos)
+        foreach(var pos in theater.ticketQueuePos)
         {
             if(!pos.isReserved)
             {
@@ -23,7 +27,7 @@ public class PositionManager : MonoBehaviour
     //removes the agent details and unreserves the position of ticket queue
     public void FreeTicketQueue(Transform freepos, CustomerAI customerAI)
     {
-        foreach(var pos in ticketQueuepos)
+        foreach(var pos in theater.ticketQueuePos)
         {
             if(freepos == pos.pos)
             {
@@ -46,9 +50,9 @@ public class PositionManager : MonoBehaviour
     {
         FreeTicketQueue(pos, customerAI);
         customerAI.DestroyAgent();
-        for(int i =1;i<ticketQueuepos.Length;i++)
+        for(int i =1;i<theater.ticketQueuePos.Length;i++)
         {
-            CustomerAI cs = ticketQueuepos[i].customerAI;
+            CustomerAI cs = theater.ticketQueuePos[i].customerAI;
             if (cs == null)
                 continue;
             FreeTicketQueue(cs.posToMove, cs);

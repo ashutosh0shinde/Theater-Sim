@@ -6,6 +6,15 @@ using TMPro;
 using UnityEngine.UI;
 
 [System.Serializable]
+public class TicketQueuePos
+{
+    public Transform pos;
+    public bool isReserved = false;
+    public CustomerAI customerAI;
+}
+
+
+[System.Serializable]
 public class MovieClass
 {
     public string name;
@@ -13,6 +22,8 @@ public class MovieClass
     public Image icon;
     public Image poster;
 }
+
+
 [System.Serializable]
 public class Audi
 {
@@ -20,10 +31,13 @@ public class Audi
     public GameObject[] seats;
 }
 
+
+
 public class Theater : MonoBehaviour
 {
     public static Theater Instance;
 
+    public TicketQueuePos[] ticketQueuePos;
     public MovieClass[] movies;
     public Audi[] audis;
     public List<GameObject> addedMovie = new List<GameObject>();
