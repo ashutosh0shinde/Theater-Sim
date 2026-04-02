@@ -28,7 +28,7 @@ public class MovieClass
 public class Audi
 {
     public int audi;
-    public GameObject[] seats;
+    public GameObject[] seats; //object of seat, and its first child its standing position in front of seat
 }
 
 
