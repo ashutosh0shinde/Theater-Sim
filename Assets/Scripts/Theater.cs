@@ -27,8 +27,16 @@ public class MovieClass
 [System.Serializable]
 public class Audi
 {
-    public int audi;
+    public int audiNo;
     public GameObject[] seats; //object of seat, and its first child its standing position in front of seat
+}
+[System.Serializable]
+
+
+public class AddedMovie
+{
+    public GameObject buttonObj;
+    public Audi audi;
 }
 
 
@@ -40,7 +48,9 @@ public class Theater : MonoBehaviour
     public TicketQueuePos[] ticketQueuePos;
     public MovieClass[] movies;
     public Audi[] audis;
-    public List<GameObject> addedMovie = new List<GameObject>();
+    public List<AddedMovie> addedMovie = new List<AddedMovie>();
+
+    public AddedMovie addedMovieTemp;
 
     private void Awake()
     {

@@ -11,8 +11,8 @@ public class TicketListing : MonoBehaviour
 
     private void Start()
     {
-        AddMovie(0, 2, 330);
-        AddMovie(1, 3, 600);
+        AddMovie(0, 1, 330);
+        AddMovie(1, 1, 600);
     }
     public void AddMovie(int ind, int audi, int start_minute)
     {
@@ -45,6 +45,20 @@ public class TicketListing : MonoBehaviour
         // add features to calculate start and end time of movie in suitable script
 
         obj.GetComponent<MovieButton>().Init();
-        Theater.Instance.addedMovie.Add(obj);
+
+        //set button obj
+        Theater.Instance.addedMovieTemp.buttonObj = obj;
+
+        //set audi
+        foreach (var aud in Theater.Instance.audis)
+        {
+            if(aud.audiNo == audi)
+            {
+                Theater.Instance.addedMovieTemp.audi = aud;
+            }
+        }
+        
+
+        Theater.Instance.addedMovie.Add(Theater.Instance.addedMovieTemp);
     }
 }
