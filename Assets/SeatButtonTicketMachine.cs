@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class SeatButtonTicketMachine : MonoBehaviour
 {
-    int audi;
-    int seat;
+    public int audi;
+    public int seat;
+
+    public void choseSeat()
+    {
+
+    }
 }

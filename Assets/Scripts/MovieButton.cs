@@ -14,6 +14,7 @@ public class MovieButton : MonoBehaviour
     public int duration_minute;
     public int start_minute;
     public int index;
+    public int addedMovieIndex;
 
     [Space]
 
@@ -47,7 +48,7 @@ public class MovieButton : MonoBehaviour
     }
     public void SelectMovie()
     {
-        
+        ticketMachine.SelectWindow(2, addedMovieIndex);
     }
     string FormatTime(int start_min)
     {

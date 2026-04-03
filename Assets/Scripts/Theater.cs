@@ -37,6 +37,12 @@ public class AddedMovie
 {
     public GameObject buttonObj;
     public Audi audi;
+
+    public  AddedMovie(GameObject obj, Audi audi)
+    {
+        this.buttonObj = obj;
+        this.audi = audi;
+    }
 }
 
 

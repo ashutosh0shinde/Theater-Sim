@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TicketMachine : MonoBehaviour, IInteractable, ICrosstext
@@ -9,6 +10,9 @@ public class TicketMachine : MonoBehaviour, IInteractable, ICrosstext
     [SerializeField] private GameObject ticketMachineCanvas;
     [SerializeField] private GameObject ticketMachine_movieCanvas;
     [SerializeField] private GameObject ticketMachine_seatCanvas;
+
+    [SerializeField] private GameObject[] seat_layout;
+    [SerializeField] private TextMeshProUGUI movieName_seatSelection;
 
     public bool isOpen;
     private CameraController controller;
@@ -30,11 +34,15 @@ public class TicketMachine : MonoBehaviour, IInteractable, ICrosstext
             }
         }
     }
-    public void ChoseMovieFromButton()
+    public void SetSeatLayout(int i)
     {
-
+        foreach (var obj in seat_layout)
+        {
+            obj.SetActive(false);
+        }
+        seat_layout[i].SetActive(true);
     }
-    public void SelectWindow(int i)
+    public void SelectWindow(int i, int addedMovieIndex = 1)
     {
         if(i == 1)
         {
@@ -44,6 +52,10 @@ public class TicketMachine : MonoBehaviour, IInteractable, ICrosstext
         else if (i == 2)
         {
             ticketMachine_movieCanvas.SetActive(false);
+
+            int audi = Theater.Instance.addedMovie[addedMovieIndex].audi.audiNo;
+            SetSeatLayout(audi-1);
+            movieName_seatSelection.text = Theater.Instance.addedMovie[addedMovieIndex].buttonObj.GetComponent<MovieButton>().movieName;
             ticketMachine_seatCanvas.SetActive(true);
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class TicketListing : MonoBehaviour
@@ -40,12 +41,15 @@ public class TicketListing : MonoBehaviour
         mb.audi = audi;
         mb.start_minute = start_minute;
         mb.index = ind;
+        mb.addedMovieIndex = Theater.Instance.addedMovie.Count;
+        mb.movieName = Theater.Instance.movies[ind].name;
         mb.Init();
 
         // add features to calculate start and end time of movie in suitable script
 
         obj.GetComponent<MovieButton>().Init();
 
+        
         //set button obj
         Theater.Instance.addedMovieTemp.buttonObj = obj;
 
@@ -58,7 +62,8 @@ public class TicketListing : MonoBehaviour
             }
         }
         
-
-        Theater.Instance.addedMovie.Add(Theater.Instance.addedMovieTemp);
+        // fix the object referencing
+        Theater.Instance.addedMovie.Add(new AddedMovie(obj, Theater.Instance.addedMovieTemp.audi));
+        
     }
 }
