@@ -7,13 +7,14 @@ using System.Runtime.CompilerServices;
 
 public class MovieButton : MonoBehaviour
 {
+    public AddedMovieButton addedMovieButton;
+
     public string movieName;
     public string movieTime;
     public int audi;
 
     public int duration_minute;
     public int start_minute;
-    public int index;
     public int addedMovieIndex;
 
     [Space]
@@ -34,11 +35,12 @@ public class MovieButton : MonoBehaviour
     }
     public void Init()
     {
-        ui_movieName.text = Theater.Instance.movies[index].name;
-        duration_minute = Theater.Instance.movies[index].duration;
+        ui_movieName.text = addedMovieButton.show.movie.mvName;
+        duration_minute = addedMovieButton.show.movie.duration;
+        start_minute = addedMovieButton.show.startTime;
         ui_audi.text = audi.ToString();
-        if(Theater.Instance.movies[index].icon)
-            ui_movieIcon.sprite = Theater.Instance.movies[index].icon.sprite;
+        if(addedMovieButton.show.movie.icon)
+            ui_movieIcon.sprite = addedMovieButton.show.movie.icon.sprite;
 
 
         //calculating time of movie

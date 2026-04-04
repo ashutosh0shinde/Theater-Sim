@@ -53,9 +53,9 @@ public class TicketMachine : MonoBehaviour, IInteractable, ICrosstext
         {
             ticketMachine_movieCanvas.SetActive(false);
 
-            int audi = Theater.Instance.addedMovie[addedMovieIndex].audi.audiNo;
-            SetSeatLayout(audi-1);
-            movieName_seatSelection.text = Theater.Instance.addedMovie[addedMovieIndex].buttonObj.GetComponent<MovieButton>().movieName;
+            //int audi = Theater.Instance.addedMovie[addedMovieIndex].audi.audiNo;
+            //SetSeatLayout(audi-1);
+            //movieName_seatSelection.text = Theater.Instance.addedMovie[addedMovieIndex].buttonObj.GetComponent<MovieButton>().movieName;
             ticketMachine_seatCanvas.SetActive(true);
         }
     }

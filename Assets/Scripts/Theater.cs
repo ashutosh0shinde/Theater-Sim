@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public class TicketQueuePos
@@ -17,7 +18,7 @@ public class TicketQueuePos
 [System.Serializable]
 public class MovieClass
 {
-    public string name;
+    public string mvName;
     public int duration;
     public Image icon;
     public Image poster;
@@ -28,21 +29,34 @@ public class MovieClass
 public class Audi
 {
     public int audiNo;
+    public int noOfSeats;
     public GameObject[] seats; //object of seat, and its first child its standing position in front of seat
 }
+
+
 [System.Serializable]
+public class Show
+{
+    public MovieClass movie;
+    public Audi audi;
+    public bool[] seatsStatus;
+    public int startTime;
+
+    public Show(int movieInd, int audiInd, int start_time)
+    {
+        this.movie = Theater.Instance.movies[movieInd];
+        this.audi = Theater.Instance.audis[audiInd];
+        this.seatsStatus = new bool[audi.noOfSeats];
+        this.startTime = start_time;
+    }
+}
 
 
-public class AddedMovie
+[System.Serializable]
+public class AddedMovieButton
 {
     public GameObject buttonObj;
-    public Audi audi;
-
-    public  AddedMovie(GameObject obj, Audi audi)
-    {
-        this.buttonObj = obj;
-        this.audi = audi;
-    }
+    public Show show;
 }
 
 
@@ -54,9 +68,9 @@ public class Theater : MonoBehaviour
     public TicketQueuePos[] ticketQueuePos;
     public MovieClass[] movies;
     public Audi[] audis;
-    public List<AddedMovie> addedMovie = new List<AddedMovie>();
 
-    public AddedMovie addedMovieTemp;
+    public List<AddedMovieButton> addedMovie = new List<AddedMovieButton>();
+    public List<Show> shows = new List<Show>();
 
     private void Awake()
     {

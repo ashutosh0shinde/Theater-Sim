@@ -11816,16 +11816,17 @@ MonoBehaviour:
     isReserved: 0
     customerAI: {fileID: 0}
   movies:
-  - name: The Avungers
+  - mvName: The Avungers
     duration: 150
     icon: {fileID: 0}
     poster: {fileID: 0}
-  - name: Dane
+  - mvName: Dane
     duration: 180
     icon: {fileID: 0}
     poster: {fileID: 0}
   audis:
   - audiNo: 1
+    noOfSeats: 0
     seats:
     - {fileID: 833157460}
     - {fileID: 1612962787}
@@ -11834,11 +11835,7 @@ MonoBehaviour:
     - {fileID: 820264729}
     - {fileID: 1881682675}
   addedMovie: []
-  addedMovieTemp:
-    buttonObj: {fileID: 0}
-    audi:
-      audiNo: 0
-      seats: []
+  shows: []
 --- !u!1 &1881682675
 GameObject:
   m_ObjectHideFlags: 0
