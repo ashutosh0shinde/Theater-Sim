@@ -39,13 +39,14 @@ public class TicketListing : MonoBehaviour
         //passing only audi, start_minute and index, rest details will be fetched from movie data with the index in button script
         MovieButton mb = obj.GetComponent<MovieButton>();
 
-        Show show = new Show(ind, audi-1, start_minute);
+        Show show = new Show(ind, audi, start_minute);
         AddedMovieButton addedMovieButton = new AddedMovieButton();
         addedMovieButton.show = show;
         addedMovieButton.buttonObj = obj;
 
         Theater.Instance.shows.Add(show);
         Theater.Instance.addedMovie.Add(addedMovieButton);
+        mb.addedMovieButton = addedMovieButton;
         mb.Init();
         
     }

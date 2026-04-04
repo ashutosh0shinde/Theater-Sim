@@ -332,7 +332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &84604882
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1942,7 +1942,7 @@ MonoBehaviour:
   ticketMachine_movieCanvas: {fileID: 1618985244}
   ticketMachine_seatCanvas: {fileID: 1689109492}
   seat_layout:
-  - {fileID: 807008469}
+  - {fileID: 84604881}
   movieName_seatSelection: {fileID: 666582779}
   isOpen: 0
 --- !u!65 &403948434
@@ -11767,7 +11767,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1865858196
 Transform:
@@ -11826,7 +11826,7 @@ MonoBehaviour:
     poster: {fileID: 0}
   audis:
   - audiNo: 1
-    noOfSeats: 0
+    noOfSeats: 6
     seats:
     - {fileID: 833157460}
     - {fileID: 1612962787}

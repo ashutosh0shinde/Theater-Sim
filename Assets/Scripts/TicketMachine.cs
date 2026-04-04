@@ -42,7 +42,7 @@ public class TicketMachine : MonoBehaviour, IInteractable, ICrosstext
         }
         seat_layout[i].SetActive(true);
     }
-    public void SelectWindow(int i, int addedMovieIndex = 1)
+    public void SelectWindow(int i, AddedMovieButton addedMovieButton = null)
     {
         if(i == 1)
         {
@@ -53,9 +53,8 @@ public class TicketMachine : MonoBehaviour, IInteractable, ICrosstext
         {
             ticketMachine_movieCanvas.SetActive(false);
 
-            //int audi = Theater.Instance.addedMovie[addedMovieIndex].audi.audiNo;
-            //SetSeatLayout(audi-1);
-            //movieName_seatSelection.text = Theater.Instance.addedMovie[addedMovieIndex].buttonObj.GetComponent<MovieButton>().movieName;
+            SetSeatLayout(addedMovieButton.show.audi.audiNo-1);
+            movieName_seatSelection.text = addedMovieButton.show.movie.mvName;
             ticketMachine_seatCanvas.SetActive(true);
         }
     }

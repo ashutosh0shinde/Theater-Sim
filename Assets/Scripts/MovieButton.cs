@@ -38,6 +38,7 @@ public class MovieButton : MonoBehaviour
         ui_movieName.text = addedMovieButton.show.movie.mvName;
         duration_minute = addedMovieButton.show.movie.duration;
         start_minute = addedMovieButton.show.startTime;
+        audi = addedMovieButton.show.audi.audiNo;
         ui_audi.text = audi.ToString();
         if(addedMovieButton.show.movie.icon)
             ui_movieIcon.sprite = addedMovieButton.show.movie.icon.sprite;
@@ -50,7 +51,7 @@ public class MovieButton : MonoBehaviour
     }
     public void SelectMovie()
     {
-        ticketMachine.SelectWindow(2, addedMovieIndex);
+        ticketMachine.SelectWindow(2, addedMovieButton);
     }
     string FormatTime(int start_min)
     {

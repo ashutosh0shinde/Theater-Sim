@@ -45,7 +45,7 @@ public class Show
     public Show(int movieInd, int audiInd, int start_time)
     {
         this.movie = Theater.Instance.movies[movieInd];
-        this.audi = Theater.Instance.audis[audiInd];
+        this.audi = Theater.Instance.audis[audiInd-1];
         this.seatsStatus = new bool[audi.noOfSeats];
         this.startTime = start_time;
     }
