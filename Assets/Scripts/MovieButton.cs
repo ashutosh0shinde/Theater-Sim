@@ -31,7 +31,7 @@ public class MovieButton : MonoBehaviour
     private TicketMachine ticketMachine;
     private void Start()
     {
-        ticketMachine = GameObject.Find("ticket").GetComponent<TicketMachine>();
+        ticketMachine = GameObject.Find("TicketMachine").GetComponent<TicketMachine>();
     }
     public void Init()
     {
